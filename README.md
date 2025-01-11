@@ -1,5 +1,5 @@
-# Getting started UV for Python
-## UV
+# Getting started with UV for Python
+## What is UV ?
 UV is an extremely fast Python package and project manager, written in Rust.
 
 > "A single tool to replace pip, pip-tools, pipx, poetry, pyenv, twine, virtualenv, and more."
@@ -8,7 +8,9 @@ UV is an extremely fast Python package and project manager, written in Rust.
 
 More information: https://docs.astral.sh/uv/
 
-## Installing UV
+## How do I install UV ?
+
+One simple commmand:
 
 ```bash
 pip install uv
@@ -21,7 +23,7 @@ Installing collected packages: uv
 Successfully installed uv-0.5.17
 ```
 
-## Installing a version of python
+## Installing a version of Python
 
 ```bash
 uv python install 3.12
@@ -29,14 +31,14 @@ Installed Python 3.12.8 in 1.58s
  + cpython-3.12.8-macos-aarch64-none
 ```
 
-## Initialize a new Project
+## How to initialize a new Project under UV
 
 ```bash
 uv init project-1
 Initialized project `project-1` at `/Projects/getting-started-python-uv/project-1`
 ```
 
-### pyproject.toml
+### Exploring the pyproject.toml file
 
 ```txt
 [project]
@@ -52,14 +54,16 @@ dependencies = []
 ### Creating a Virtual Environment with UV
 
 ```bash
-uv venv --python 3.10
+uv python install 3.12
+Installed Python 3.12.8 in 1.58s
+ + cpython-3.12.8-macos-aarch64-none
 ```
 
-Output
-```bash
-Using CPython 3.13.1 interpreter at: /opt/homebrew/opt/python@3.13/bin/python3.13
+## Creating a virtual environment using Python 3.13
 
-### Output ###
+```bash
+uv venv --python 3.13
+Using CPython 3.13.1 interpreter at: /opt/homebrew/opt/python@3.13/bin/python3.13
 Creating virtual environment at: .venv
 Activate with: source .venv/bin/activate
 ```
@@ -73,10 +77,8 @@ source .venv/bin/activate
 ## Installing our first package (fastapi)
 
 ```bash
-
 uv add fastapi
 
-## Output ###
 Using CPython 3.12.8
 Removed virtual environment at: .venv
 Creating virtual environment at: .venv
