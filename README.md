@@ -106,3 +106,21 @@ dependencies = [
     "uvicorn>=0.34.0",
 ]
 ```
+
+## Running your project
+
+```bash
+uv run main.py
+
+### Output ###
+
+INFO:     Started server process [66888]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:62055 - "GET / HTTP/1.1" 200 OK
+^CINFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [66888]
+```
