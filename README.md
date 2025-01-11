@@ -25,14 +25,16 @@ Successfully installed uv-0.5.17
 
 ```bash
 uv python install 3.12
+Installed Python 3.12.8 in 1.58s
+ + cpython-3.12.8-macos-aarch64-none
 ```
 
 ## Initialize a new Project
 
 ```bash
 uv init project-1
+Initialized project `project-1` at `/Projects/getting-started-python-uv/project-1`
 ```
-
 
 ### pyproject.toml
 
