@@ -1,10 +1,24 @@
-# getting-started-python-uv
-Basic Info on Python UV 
+# Getting started UV for Python
+## UV
+UV is an extremely fast Python package and project manager, written in Rust.
+
+> "A single tool to replace pip, pip-tools, pipx, poetry, pyenv, twine, virtualenv, and more."
+
+**UV** can so much more, please checkout the official website
+
+More information: https://docs.astral.sh/uv/
 
 ## Installing UV
 
 ```bash
 pip install uv
+Collecting uv
+  Obtaining dependency information for uv from https://files.pythonhosted.org/packages/f1/7e/4c8b7ca07945fe6ffd1a7e5d1f992b72534be69e97e20a2536d192734adc/uv-0.5.17-py3-none-macosx_11_0_arm64.whl.metadata
+  Downloading uv-0.5.17-py3-none-macosx_11_0_arm64.whl.metadata (11 kB)
+Downloading uv-0.5.17-py3-none-macosx_11_0_arm64.whl (14.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 14.0/14.0 MB 15.0 MB/s eta 0:00:00
+Installing collected packages: uv
+Successfully installed uv-0.5.17
 ```
 
 ## Installing a version of python
