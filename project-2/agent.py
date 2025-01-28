@@ -3,7 +3,7 @@ from database import SessionLocal
 from models import User
 from contextlib import contextmanager
 from pydantic import BaseModel, Field
-from pydantic_ai import Agent
+from pydantic_ai import Agent, RunContext
 
 
 @contextmanager
@@ -53,3 +53,21 @@ support_agent = Agent(
         "Check subscription plans, and determine if their query should be escalated"
     ),
 )
+
+@support_agent.system_prompt
+async def add_user_name(ctx: RunContext[SupportDependencies]) -> str:
+    """Returns the username"""
+    user_name = await ctx.depds.db.user_name(id=ctx.deps.user_id)
+    return f"The user's name is {user_name}"
+
+@support_agent.tool
+async def account_status(ctx: RunContext[SupportDependencies]) -> str:
+    """ Returns the user's account status. """
+    status = await ctx.deps.db.account_status(id=ctx.deps.user_id)
+    return f"Your account is currently: {status}"
+
+@support_agent.tool
+async def subscription_plan(ctx: RunContext[SupportDependencies]) -> str:
+    """Returns the user's subscription plan"""
+    plan = await ctx.deps.db.subscription_plan(id=ctx.deps.user_id)
+    return f"Your current subscription plan is : {plan}"
