@@ -82,14 +82,30 @@ async def add_new_car(new_car=Body()):
 
 @app.put("/car/update_car")
 async def update_car(updated_car=Body()):
+    is_carFound = False
     for i in range(len(CARS)):
         if CARS[i].get('id_car').casefold() == updated_car.get('id_car').casefold():
+            is_carFound = True
             CARS[i] = updated_car
+    
+    if is_carFound:
+        return {
+                "result": f"car with id: {id_car} was updated successfully",
+                "car_details": update_car
+                }
+    else:
+        return {"result": f"no car found with id: {id_car}"}
 
-@app.delete("/car/delete_car/{car_id}")
-async def delete_car(car_id: str):
+@app.delete("/car/delete_car/{id_car}")
+async def delete_car(id_car: str):
+    is_carFound = False
     for i in range(len(CARS)):
-        if CARS[i].get('id_car').casefold() == car_id.casefold():
-            print(f">> Found car : {id_car}")
+        if CARS[i].get('id_car').casefold() == id_car.casefold():
+            is_carFound = True
             CARS.pop(i)
             break
+        
+    if is_carFound:
+        return {"result": f"car with id: {id_car} was deleted"}
+    else:
+        return {"result": f"no car found with id: {id_car}"}
