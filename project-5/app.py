@@ -1,6 +1,7 @@
 import sqlite3
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
 from werkzeug.exceptions import abort
+import datetime
 
 db_connection_string="db/cars.db"
 
@@ -46,7 +47,8 @@ def delete(id):
 
 @app.route('/<int:id>/edit', methods=('GET', 'POST'))
 def edit(id):
-    post = get_car(id)
+    currentDateTime = datetime.datetime.now()
+    car = get_car(id)
 
     if request.method == 'POST':
         brand = request.form['brand']
@@ -60,11 +62,12 @@ def edit(id):
             flash('Brand is required!')
         else:
             conn = get_db_connection()
-            conn.execute('UPDATE cars SET brand = ?, model = ?, m_year = ?, color = ?, province = ?, city = ?'
+            conn.execute('UPDATE cars SET created = ?, brand = ?, model = ?, m_year = ?, color = ?, province = ?, city = ?'
                          ' WHERE id = ?',
-                         (brand, model, m_year, color, province, city, id))
+                        (currentDateTime, brand, model, m_year, color, province, city, id))
+
             conn.commit()
             conn.close()
             return redirect(url_for('index'))
 
-    return render_template('edit.html', post=post)
+    return render_template('edit.html', car=car)
