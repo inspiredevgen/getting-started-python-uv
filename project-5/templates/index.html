@@ -3,7 +3,7 @@
 {% block content %}
     <h1>{% block title %} Car Inventory App {% endblock %}</h1>
     {% for car in cars %}
-        <a href="#">
+        <a href="{{ url_for('car', car_id=car['id']) }}">
             <h2>{{ car['brand'] }} {{ car['model'] }}</h2>
         </a>
         <span class="badge badge-primary">{{ car['created'] }}</span>

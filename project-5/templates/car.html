@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>{% block title %} {{ car['brand'] }} {{ car['model'] }} {% endblock %}</h2>
+    <span class="badge badge-primary">{{ car['created'] }}</span>
+    <p>{{ car['color'] }} - {{ car['m_year'] }} | <span class="badge badge-light"> {{ car['city'] }} - {{ car['province'] }} </span></p>
+{% endblock %}
