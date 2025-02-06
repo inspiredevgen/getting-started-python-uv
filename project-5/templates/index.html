@@ -1,12 +1,38 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %} Car Inventory App {% endblock %}</h1>
+    <center><h1>{% block title %} Car Inventory App {% endblock %}</h1></center>
+    <img src="{{url_for('static', filename='img/car-logo.webp')}}" align="middle" />
     {% for car in cars %}
         <a href="{{ url_for('car', car_id=car['id']) }}">
             <h2>{{ car['brand'] }} {{ car['model'] }}</h2>
         </a>
+        <span class="badge badge-light">Year: </span>
+        <span class="badge badge-primary">{{ car['m_year'] }}</span>
+        <span class="badge badge-light">Color: </span>
+        <span class="badge badge-primary">{{ car['color'] }}</span> 
+        <span class="badge badge-light">City: </span>
+        <span class="badge badge-primary">{{ car['city'] }}</span>
+        <span class="badge badge-light">Province: </span>
+        <span class="badge badge-primary">{{ car['province'] }}</span> 
+        <span class="badge badge-light">Last Updated: </span>
         <span class="badge badge-primary">{{ car['created'] }}</span>
+        
+        |
+        
+        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+            <div class="btn-group" role="group">
+              <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Actions
+              </button>
+              <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                <a class="dropdown-item" href="{{ url_for('edit', id=car['id']) }}">Edit</a>
+                <a class="dropdown-item" href="{{ url_for('delete', id=car['id']) }}">Delete</a>
+                <a class="dropdown-item" href="#">Reserved</a>
+              </div>
+            </div>
+          </div>
+
         <hr>
     {% endfor %}
 {% endblock %}
