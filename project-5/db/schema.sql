@@ -1,0 +1,12 @@
+DROP TABLE IF EXISTS posts;
+
+CREATE TABLE cars (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    brand TEXT NOT NULL,
+    model TEXT NOT NULL,
+    m_year INTEGER,
+    color TEXT,
+    province TEXT,
+    city TEXT
+);
