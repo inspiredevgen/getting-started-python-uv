@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<center><h1>{% block title %} Add a New Car {% endblock %}</h1></center>
+    <img src="{{url_for('static', filename='img/car-logo.webp')}}" align="middle" />
+
+<form method="post">
+    
+    <div class="form-group">
+        <label for="brand">Brand</label>
+        <input type="text" name="brand" placeholder="Car Brand"
+               class="form-control"
+               value="{{ request.form['brand'] }}">
+        </input>
+    </div>
+
+    <div class="form-group">
+        <label for="model">Model</label>
+        <textarea name="model" placeholder="Car model"
+                  class="form-control">{{ request.form['model'] }}</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="model">Year</label>
+        <textarea name="m_year" placeholder="Year"
+                  class="form-control">{{ request.form['m_year'] }}</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="model">Color</label>
+        <textarea name="color" placeholder="Color"
+                  class="form-control">{{ request.form['color'] }}</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="city">City</label>
+        <textarea name="city" placeholder="City"
+                  class="form-control">{{ request.form['city'] }}</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="model">Province</label>
+        <textarea name="province" placeholder="province"
+                  class="form-control">{{ request.form['province'] }}</textarea>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+{% endblock %}

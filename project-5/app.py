@@ -1,5 +1,5 @@
 import sqlite3
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, flash
 from werkzeug.exceptions import abort
 import datetime
 
@@ -21,6 +21,7 @@ def get_car(car_id):
 
 app = Flask(__name__)
 
+app.config['SECRET_KEY'] = 'your secret key'
 
 @app.route('/')
 def index():
@@ -34,12 +35,39 @@ def car(car_id):
     car = get_car(car_id)
     return render_template('car.html', car=car)
 
+@app.route('/create', methods=('GET', 'POST'))
+def create():
+    if request.method == 'POST':
+        brand = request.form['brand']
+        model = request.form['model']
+        m_year = request.form['m_year']
+        color = request.form['color']
+        province = request.form['province']
+        city = request.form['city']
 
-@app.route('/<int:id>/delete', methods=('POST',))
+        if not brand:
+            flash('brand is required!')
+        elif not model:
+            flash('model is required!')
+        elif not m_year:
+            flash('year is required!')
+        else:
+            conn = get_db_connection()
+
+            conn.execute('INSERT INTO cars (brand, model, m_year, color, province, city) VALUES (?, ?, ?, ?, ?, ?)',
+                        (brand, model, m_year, color, province, city))
+
+            conn.commit()
+            conn.close()
+            return redirect(url_for('index'))
+
+    return render_template('create.html')
+
+@app.route('/<int:id>/delete', methods=('POST','GET'))
 def delete(id):
-    post = get_car(id)
+    car = get_car(id)
     conn = get_db_connection()
-    conn.execute('DELETE FROM posts WHERE id = ?', (id,))
+    conn.execute('DELETE FROM cars WHERE id = ?', (id,))
     conn.commit()
     conn.close()
     flash('"{}" was successfully deleted!'.format(car['brand']))
