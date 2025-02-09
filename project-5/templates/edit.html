@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{% block title %} Edit "{{ car['brand'] }} {{ car['model'] }}" {% endblock %}</h1>
+<center><h1>{% block title %} Car Inventory App {% endblock %}</h1></center>
+    <img src="{{url_for('static', filename='img/car_edit.svg')}}" width="250" align="middle" />
+    <h2>Edit "{{ car['brand'] }} {{ car['model'] }}" </h2>
 
 <form method="post">
     <div class="form-group">

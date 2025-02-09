@@ -99,3 +99,7 @@ def edit(id):
             return redirect(url_for('index'))
 
     return render_template('edit.html', car=car)
+
+@app.route('/edit-2')
+def edit2():
+    return render_template('edit-2.html')
