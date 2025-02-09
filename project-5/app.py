@@ -63,7 +63,7 @@ def create():
 
     return render_template('create.html')
 
-@app.route('/<int:id>/delete', methods=('POST','GET'))
+@app.route('/<int:id>/delete', methods=('POST',))
 def delete(id):
     car = get_car(id)
     conn = get_db_connection()
