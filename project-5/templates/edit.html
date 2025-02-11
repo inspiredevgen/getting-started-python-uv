@@ -1,51 +1,63 @@
-{% extends 'base.html' %}
+{% extends 'common.html' %}
 
 {% block content %}
-<h1>{% block title %} Edit "{{ car['brand'] }} {{ car['model'] }}" {% endblock %}</h1>
-
-<form method="post">
-    <div class="form-group">
-        <label for="brand">Brand</label>
-        <input type="text" name="brand" placeholder="Car Brand"
-               class="form-control"
-               value="{{ request.form['brand'] or car['brand'] }}">
-        </input>
-    </div>
-
-    <div class="form-group">
-        <label for="model">Model</label>
-        <textarea name="model" placeholder="Car model"
-                  class="form-control">{{ request.form['model'] or car['model'] }}</textarea>
-    </div>
-
-    <div class="form-group">
-        <label for="model">Year</label>
-        <textarea name="m_year" placeholder="Year"
-                  class="form-control">{{ request.form['m_year'] or car['m_year'] }}</textarea>
-    </div>
-
-    <div class="form-group">
-        <label for="model">Color</label>
-        <textarea name="color" placeholder="Color"
-                  class="form-control">{{ request.form['color'] or car['color'] }}</textarea>
-    </div>
-
-    <div class="form-group">
-        <label for="city">City</label>
-        <textarea name="city" placeholder="City"
-                  class="form-control">{{ request.form['city'] or car['city'] }}</textarea>
-    </div>
-
-    <div class="form-group">
-        <label for="model">Province</label>
-        <textarea name="province" placeholder="province"
-                  class="form-control">{{ request.form['province'] or car['province'] }}</textarea>
-    </div>
 
 
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-</form>
-<hr>
+
+<div class="container contact-form">
+            <div class="contact-image">
+              <img src="{{url_for('static', filename='img/car_edit.svg')}}" width="250" align="middle" />
+            </div>
+            
+            <form method="post">
+                <div class="form-group">
+                    <div class="form-group">
+                        <h3>Update car: "{{ car['brand'] }} {{ car['model'] }}"</h3>
+                    </div>
+                    <span class="badge badge-primary">Brand</span><br>
+                    <input type="text" name="brand" placeholder="Car Brand"
+                           class="form-control"
+                           value="{{ request.form['brand'] or car['brand'] }}">
+                    </input>
+                </div>
+            
+                <div class="form-group">
+                    <span class="badge badge-primary">Model</span><br>
+                    <textarea name="model" placeholder="Car model"
+                              class="form-control">{{ request.form['model'] or car['model'] }}</textarea>
+                </div>
+            
+                <div class="form-group">
+                    <span class="badge badge-primary">Year</span><br>
+                    <textarea name="m_year" placeholder="Year"
+                              class="form-control">{{ request.form['m_year'] or car['m_year'] }}</textarea>
+                </div>
+            
+                <div class="form-group">
+                    <span class="badge badge-primary">Color</span><br>
+                    <textarea name="color" placeholder="Color"
+                              class="form-control">{{ request.form['color'] or car['color'] }}</textarea>
+                </div>
+            
+                <div class="form-group">
+                    <span class="badge badge-primary">City</span><br>
+                    <textarea name="city" placeholder="City"
+                              class="form-control">{{ request.form['city'] or car['city'] }}</textarea>
+                </div>
+            
+                <div class="form-group">
+                    <span class="badge badge-primary">Province</span><br>
+                    <textarea name="province" placeholder="province"
+                              class="form-control">{{ request.form['province'] or car['province'] }}</textarea>
+                </div>
+            
+            
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+</div>
+
+
+    <script src="{{ url_for('static', filename='css/js1.js') }}"></script>
 {% endblock %}

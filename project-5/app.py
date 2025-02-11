@@ -96,6 +96,7 @@ def edit(id):
 
             conn.commit()
             conn.close()
+            msg = f"{brand} {model} was successfully updated!"
             return redirect(url_for('index'))
 
     return render_template('edit.html', car=car)
