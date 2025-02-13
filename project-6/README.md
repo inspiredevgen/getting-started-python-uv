@@ -35,3 +35,7 @@ uv run app.py
 │ 4 │ Toyota │ Rav4 │ 2015 │ Calgary │ AB │
 │ 5 │ Ford │ Explorer │ 2022 │ Oakville │ ON │
 └────────┴───────────────┴──────────┴───────┴───────────┴─────────┘
+
+## Docs:
+
+DockDB official: https://duckdb.org/docs/clients/python/overview.html
