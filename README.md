@@ -1,5 +1,9 @@
 # Getting started with UV for Python
-## What is UV ?
+
+## I. Using UV
+
+### 1. What is UV ?
+
 UV is an extremely fast Python package and project manager, written in Rust.
 
 > "A single tool to replace pip, pip-tools, pipx, poetry, pyenv, twine, virtualenv, and more."
@@ -8,7 +12,7 @@ UV is an extremely fast Python package and project manager, written in Rust.
 
 More information: https://docs.astral.sh/uv/
 
-## How do I install UV ?
+### 2. How do I install UV ?
 
 One simple commmand:
 
@@ -23,7 +27,7 @@ Installing collected packages: uv
 Successfully installed uv-0.5.17
 ```
 
-## Installing a version of Python
+### 3. Installing a version of Python
 
 ```bash
 uv python install 3.12
@@ -31,14 +35,14 @@ Installed Python 3.12.8 in 1.58s
  + cpython-3.12.8-macos-aarch64-none
 ```
 
-## How to initialize a new Project under UV
+### 4. How to initialize a new Project under UV
 
 ```bash
 uv init project-1
 Initialized project `project-1` at `/Projects/getting-started-python-uv/project-1`
 ```
 
-### Exploring the pyproject.toml file
+#### 4.1 Exploring the pyproject.toml file
 
 ```txt
 [project]
@@ -51,7 +55,7 @@ dependencies = []
 
 ```
 
-### Creating a Virtual Environment with UV
+#### 4.2 Creating a Virtual Environment with UV
 
 ```bash
 uv python install 3.12
@@ -59,7 +63,7 @@ Installed Python 3.12.8 in 1.58s
  + cpython-3.12.8-macos-aarch64-none
 ```
 
-## Creating a virtual environment using Python 3.13
+#### 4.3 Creating a virtual environment using Python 3.13
 
 ```bash
 uv venv --python 3.13
@@ -68,13 +72,13 @@ Creating virtual environment at: .venv
 Activate with: source .venv/bin/activate
 ```
 
-## Activating your Virtual Environment
+#### 4.4 Activating your Virtual Environment
 
 ```bash
 source .venv/bin/activate
 ```
 
-## Installing our first package (fastapi)
+#### 4.5 Installing our first package (fastapi)
 
 ```bash
 uv add fastapi
@@ -94,38 +98,38 @@ Installed 9 packages in 10ms
  + sniffio==1.3.1
  + starlette==0.41.3
  + typing-extensions==4.12.2
- ```
+```
 
- ### Installing uvicorn
+#### 4.6 Installing uvicorn
 
- ```bash
- uv add uvicorn
+```bash
+uv add uvicorn
 
- ### Output ###
+### Output ###
 Resolved 14 packages in 184ms
 Prepared 3 packages in 69ms
 Installed 3 packages in 7ms
- + click==8.1.8
- + h11==0.14.0
- + uvicorn==0.34.0
- ```
++ click==8.1.8
++ h11==0.14.0
++ uvicorn==0.34.0
+```
 
- ## Dependencies are updated
+#### 4.7 Dependencies are updated
 
- ```txt
- [project]
+```txt
+[project]
 name = "project-1"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "fastapi>=0.115.6",
-    "uvicorn>=0.34.0",
+   "fastapi>=0.115.6",
+   "uvicorn>=0.34.0",
 ]
 ```
 
-## Running your project
+#### 4.8 Running your project
 
 ```bash
 uv run main.py
@@ -142,3 +146,29 @@ INFO:     Waiting for application shutdown.
 INFO:     Application shutdown complete.
 INFO:     Finished server process [66888]
 ```
+
+## II. Projects in this Repo
+
+### Project-1: simple FastAPI project
+
+[project-1 - FastAPI](https://github.com/inspiredevgen/getting-started-python-uv/tree/main/project-1)
+
+### Project-2: Pydantic Project
+
+[Project-2 FastAPI](https://github.com/inspiredevgen/getting-started-python-uv/tree/main/project-2)
+
+### Project-3: FastAPI Auth Project
+
+[Project-3 FastAPI Auth](https://github.com/inspiredevgen/getting-started-python-uv/tree/main/project-3)
+
+### Project-4: FastAPI: Car inventory project
+
+[Project-4 Car Inventory App](https://github.com/inspiredevgen/getting-started-python-uv/tree/main/project-4)
+
+### Project-5: Flask WebApp
+
+[Project-5 Flask WebApp](https://github.com/inspiredevgen/getting-started-python-uv/tree/main/project-5)
+
+### Project-6: simple database project using DuckDB
+
+[Project-6 DuckDB](https://github.com/inspiredevgen/getting-started-python-uv/tree/main/project-6)
