@@ -151,12 +151,24 @@ INFO:     Finished server process [66888]
 
 ### Project-1: simple FastAPI project
 
+[project-1 - FastAPI](https://github.com/inspiredevgen/getting-started-python-uv/tree/main/project-1)
+
 ### Project-2: Pydantic Project
+
+[Project-2 FastAPI](https://github.com/inspiredevgen/getting-started-python-uv/tree/main/project-2)
 
 ### Project-3: FastAPI Auth Project
 
+[Project-3 FastAPI Auth](https://github.com/inspiredevgen/getting-started-python-uv/tree/main/project-3)
+
 ### Project-4: FastAPI: Car inventory project
+
+[Project-4 Car Inventory App](https://github.com/inspiredevgen/getting-started-python-uv/tree/main/project-4)
 
 ### Project-5: Flask WebApp
 
+[Project-5 Flask WebApp](https://github.com/inspiredevgen/getting-started-python-uv/tree/main/project-5)
+
 ### Project-6: simple database project using DuckDB
+
+[Project-6 DuckDB](https://github.com/inspiredevgen/getting-started-python-uv/tree/main/project-6)
