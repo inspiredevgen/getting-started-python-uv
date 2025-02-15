@@ -1,5 +1,4 @@
 import sqlite3
-
 connection = sqlite3.connect('cars.db')
 
 with open('schema.sql') as f:
