@@ -172,3 +172,5 @@ INFO:     Finished server process [66888]
 ### Project-6: simple database project using DuckDB
 
 [Project-6 DuckDB](https://github.com/inspiredevgen/getting-started-python-uv/tree/main/project-6)
+
+[project-7 Python with SQLite]
