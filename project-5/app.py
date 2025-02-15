@@ -63,7 +63,7 @@ def create():
 
     return render_template('create.html')
 
-@app.route('/<int:id>/delete', methods=('POST',))
+@app.route('/<int:id>/delete', methods=('POST','GET'))
 def delete(id):
     car = get_car(id)
     conn = get_db_connection()
@@ -100,3 +100,10 @@ def edit(id):
             return redirect(url_for('index'))
 
     return render_template('edit.html', car=car)
+
+@app.route('/cars')
+def displayAllCars():
+    conn = get_db_connection()
+    cars = conn.execute('SELECT * FROM cars').fetchall()
+    conn.close()
+    return render_template('cars.html', cars=cars)
