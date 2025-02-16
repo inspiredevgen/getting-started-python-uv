@@ -1,7 +1,67 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>{% block title %} {{ car['brand'] }} {{ car['model'] }} {% endblock %}</h2>
-    <span class="badge badge-primary">{{ car['created'] }}</span>
-    <p>{{ car['color'] }} - {{ car['m_year'] }} | <span class="badge badge-light"> {{ car['city'] }} - {{ car['province'] }} </span></p>
+
+<center><h1>{% block title %} Car Inventory App {% endblock %}</h1></center>
+    <img src="{{url_for('static', filename='img/car-logo.webp')}}" align="middle" />
+<center><h1 class="display-2">Info Véhicule</h1></center>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+
+  <center>
+    <div class="card" style="max-width: 640px">
+        <img src="{{url_for('static', filename='img/car01.webp')}}" class="card-img-top" alt="Product Image">
+        <div class="card-body">
+            <h5 class="card-title">{{ car['m_year'] }} {{ car['brand'] }} {{ car['model'] }}</h5>
+            <p class="card-text">{{ car['brand'] }} {{ car['model'] }}, année de fabrication {{ car['m_year'] }} de couleur {{ car['color'] }}.<br>Vous pouvez visiter ce véhicule à notre showroom de {{ car['city'] }}, {{ car['province'] }}</p>
+            <div class="d-flex justify-content-between align-items-center">
+                <span class="h5 mb-0">$0</span>
+                <div>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-half text-warning"></i>
+                    <small class="text-muted">(4.5)</small>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer d-flex justify-content-between bg-light">
+            <button class="btn btn-primary btn-sm">Ajouter au Panier</button> <a class="btn btn-danger" href="{{ url_for('delete', id=car['id']) }}" role="button">Modifier</a> <a class="btn btn-secondary" href="{{ url_for('edit', id=car['id']) }}" role="button">Modifier</a>
+            <button class="btn btn-outline-secondary btn-sm"><i class="bi bi-heart"></i></button>
+            
+
+            <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    Supprimer ?
+                </button>
+  
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Confirm car deletion</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        Do you want to delete this vehiche ?
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Understood</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                <!-- End Modal -->
+        </div>
+    </div>
+  </center>
+
+
+
+
+
 {% endblock %}

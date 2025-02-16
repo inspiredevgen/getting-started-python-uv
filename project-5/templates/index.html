@@ -5,7 +5,7 @@
     <img src="{{url_for('static', filename='img/car-logo.webp')}}" align="middle" />
 
     {% for car in cars %}
-        <a href="{{ url_for('car', car_id=car['id']) }}">
+        <a href="{{ url_for('display_car', car_id=car['id']) }}">
             <h2>{{ car['m_year'] }} {{ car['brand'] }} {{ car['model'] }}</h2>
         </a>
         <span class="badge badge-primary">Year: </span>
