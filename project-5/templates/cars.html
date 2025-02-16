@@ -4,6 +4,8 @@
     <center><h1>{% block title %} Car Inventory App {% endblock %}</h1></center>
     <img src="{{url_for('static', filename='img/car-logo.webp')}}" align="middle" />
 
+    <center><h1 class="display-2">Liste des Véhicules</h1></center>
+    <p class="h3">Nombre Total: {{ totalcars }}</p>
 
     <table class="table table-dark table-striped table-hover">
       <thead>
