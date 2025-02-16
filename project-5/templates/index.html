@@ -3,22 +3,21 @@
 {% block content %}
     <center><h1>{% block title %} Car Inventory App {% endblock %}</h1></center>
     <img src="{{url_for('static', filename='img/car-logo.webp')}}" align="middle" />
+
     {% for car in cars %}
         <a href="{{ url_for('car', car_id=car['id']) }}">
-            <h2>{{ car['brand'] }} {{ car['model'] }}</h2>
+            <h2>{{ car['m_year'] }} {{ car['brand'] }} {{ car['model'] }}</h2>
         </a>
-        <span class="badge badge-light">Year: </span>
-        <span class="badge badge-primary">{{ car['m_year'] }}</span>
-        <span class="badge badge-light">Color: </span>
-        <span class="badge badge-primary">{{ car['color'] }}</span> 
-        <span class="badge badge-light">City: </span>
-        <span class="badge badge-primary">{{ car['city'] }}</span>
-        <span class="badge badge-light">Province: </span>
-        <span class="badge badge-primary">{{ car['province'] }}</span> 
-        <span class="badge badge-light">Last Updated: </span>
-        <span class="badge badge-primary">{{ car['created'] }}</span>
-        
-        |
+        <span class="badge badge-primary">Year: </span>
+        <span class="badge badge-light">{{ car['m_year'] }}</span> <br>
+        <span class="badge badge-primary">Color: </span>
+        <span class="badge badge-light">{{ car['color'] }}</span> <br>
+        <span class="badge badge-primary">City: </span>
+        <span class="badge badge-light">{{ car['city'] }}</span> <br>
+        <span class="badge badge-primary">Province: </span>
+        <span class="badge badge-light">{{ car['province'] }}</span> <br>
+        <span class="badge badge-primary">Last Updated: </span>
+        <span class="badge badge-light">{{ car['created'] }}</span> <br>
         
         <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
             <div class="btn-group" role="group">
@@ -36,32 +35,4 @@
         <hr>
     {% endfor %}
 
-    <table class="table table-dark table-striped table-hover">
-      <thead>
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Brand</th>
-          <th scope="col">Model</th>
-          <th scope="col">Year</th>
-          <th scope="col">Color</th>
-          <th scope="col">City</th>
-          <th scope="col">Province</th>
-          <th scope="col">Last Updated</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for car in cars %}
-        <tr>
-          <th scope="row">{{ car['id'] }}</th>
-          <td>{{ car['brand'] }}</td>
-          <td>{{ car['model'] }}</td>
-          <td>{{ car['m_year'] }}</td>
-          <td>{{ car['color'] }}</td>
-          <td>{{ car['city'] }}</td>
-          <td>{{ car['province'] }}</td>
-          <td>{{ car['created'] }}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
 {% endblock %}
