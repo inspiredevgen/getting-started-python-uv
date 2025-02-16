@@ -30,8 +30,8 @@ def index():
     conn.close()
     return render_template('index.html', cars=cars)
 
-@app.route('/<int:car_id>')
-def car(car_id):
+@app.route('/car/<int:car_id>')
+def display_car(car_id):
     car = get_car(car_id)
     return render_template('car.html', car=car)
 
@@ -108,3 +108,7 @@ def displayAllCars():
     conn.close()
     totalcars = len(cars)
     return render_template('cars.html', cars=cars, totalcars=totalcars)
+
+@app.route('/dev')
+def get_developerInfo():
+    return render_template('developer.html')

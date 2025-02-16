@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<link href="{{ url_for('static', filename='css/dev.css')}}" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+<center><h1>{% block title %} Car Inventory App {% endblock %}</h1></center>
+    <img src="{{url_for('static', filename='img/car-logo.webp')}}" align="middle" />
+<center><h1 class="display-2">The App Developer</h1></center>
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="flip-card mx-auto">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://randomuser.me/api/portraits/men/81.jpg" alt="Team Member" class="profile-img">
+                        <h3>Adi Bal-Mayel</h3>
+                        <p>Full Stack Developer</p>
+                        <p class="mt-3">
+                            <span class="waving-hand">👋</span> Hover to know more!
+                        </p>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>About Me</h3>
+                        <p>
+                            A highly motivated and results-oriented Full Stack Developer, 
+                            Cloud Engineer, and Solutions Architect with a passion for writing clean, 
+                            efficient code and crafting innovative solutions.  Dedicated to continuous learning and eager to share knowledge with others.
+                        </p>
+                        <div class="social-icons mt-4">
+                            <a href="https://join.slack.com/t/inspiredevgen/shared_invite/zt-2zdl57jwm-BXamxCHHuGdtJ8jKFfVT4A"><i class="fab fa-slack"></i></a>
+                            <a href="https://github.com/ajbax"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
