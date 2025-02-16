@@ -106,4 +106,5 @@ def displayAllCars():
     conn = get_db_connection()
     cars = conn.execute('SELECT * FROM cars').fetchall()
     conn.close()
-    return render_template('cars.html', cars=cars)
+    totalcars = len(cars)
+    return render_template('cars.html', cars=cars, totalcars=totalcars)
