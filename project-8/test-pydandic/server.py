@@ -20,7 +20,7 @@ async def is_odd(number: int):
 
 @app.get("/is_odd/{number}")
 async def is_oddNumber(number: int):
-    if number % 2 == 0:
+    if number % 2 != 0:
         return {"result": f"{number} is odd"}
     return {"result": f"{number} is not odd"}
 
